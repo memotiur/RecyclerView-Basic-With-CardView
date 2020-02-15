@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.i.androidbasic_1.R;
+import com.i.androidbasic_1.model.Name;
 
 import java.util.ArrayList;
 
@@ -16,9 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<String> nameList;
+    private ArrayList<Name> nameList;
 
-    public ProductAdapter(Context mContext, ArrayList<String> nameList) {
+    public ProductAdapter(Context mContext, ArrayList<Name> nameList) {
         this.mContext = mContext;
         this.nameList = nameList;
     }
@@ -32,8 +35,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvNameItem.setText(nameList.get(position));
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.tvNameItem.setText(nameList.get(position).getName());
+        holder.tvDesignation.setText(nameList.get(position).getDesignation());
     }
 
     @Override
@@ -43,11 +47,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvNameItem;
+        TextView tvNameItem,tvDesignation;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameItem = itemView.findViewById(R.id.tvNameItem);
+            tvDesignation = itemView.findViewById(R.id.tvDesignation);
         }
     }
 }

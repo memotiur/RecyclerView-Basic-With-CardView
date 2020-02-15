@@ -6,15 +6,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.i.androidbasic_1.adapter.ProductAdapter;
+import com.i.androidbasic_1.model.Name;
 
 import java.util.ArrayList;
-
 public class RecyclerViewDemo extends AppCompatActivity {
 
     RecyclerView rvListDemo;
-    private ArrayList<String> mNameList;
+    private ArrayList<Name> mNameList;
     private ProductAdapter mAdapter;
 
     @Override
@@ -30,7 +32,7 @@ public class RecyclerViewDemo extends AppCompatActivity {
         mNameList = new ArrayList<>();
 
         for (int i = 0; i <5 ; i++) {
-            mNameList.add("Name: " + i);
+          mNameList.add(new Name("Motiur "+ i, "SE"));
         }
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
