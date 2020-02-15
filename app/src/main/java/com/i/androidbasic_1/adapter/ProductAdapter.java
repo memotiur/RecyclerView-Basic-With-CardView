@@ -38,6 +38,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.tvNameItem.setText(nameList.get(position).getName());
         holder.tvDesignation.setText(nameList.get(position).getDesignation());
+
+        holder.tvNameItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, nameList.get(position).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
